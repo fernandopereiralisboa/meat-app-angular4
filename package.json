@@ -35,7 +35,7 @@
     "zone.js": "0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.2.7",
+    "@angular/cli": "^1.6.5",
     "@angular/compiler-cli": "4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "7.0.5",
@@ -50,7 +50,7 @@
     "protractor": "5.1.0",
     "ts-node": "2.1.0",
     "tslint": "4.5.0",
-    "typescript": "^2.6.2",
+    "typescript": "^2.4.0",
     "webdriver-manager": "10.2.5"
   }
 }
