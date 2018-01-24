@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { ShoppingCartService } from '../restaurant-detail/shopping-cart/shopping-cart.service';
 import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
-import { Order, OrderItem } from './order.model';
+import { Order } from './order.model';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
