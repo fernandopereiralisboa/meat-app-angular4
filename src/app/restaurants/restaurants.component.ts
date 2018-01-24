@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Restaurant } from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
@@ -25,13 +26,21 @@ import { RestaurantsService } from './restaurants.service';
 export class RestaurantsComponent implements OnInit {
 
   searchBarState = 'hidden';
-
   restaurants: Restaurant[];
 
-  constructor(private restaurantsService: RestaurantsService) { }
+  searchForm: FormGroup;
+  searchControl: FormControl;
+
+  constructor(private restaurantsService: RestaurantsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.restaurantsService.restaurants().subscribe(restaurants => this.restaurants = restaurants);
+    this.searchControl = this.formBuilder.control('');
+    this.searchForm = this.formBuilder.group({
+      searchControl: this.searchControl
+    });
+
+    this.restaurantsService.restaurants()
+      .subscribe(restaurants => this.restaurants = restaurants);
   }
 
   toggleSearch() {
