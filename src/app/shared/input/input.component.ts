@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
 import { NgModel, FormControlName } from '@angular/forms';
-import { AfterContentChecked } from '@angular/core/src/metadata/lifecycle_hooks';
 import { ErrorHandler } from 'app/app.error-handler';
 
 @Component({
@@ -11,6 +10,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   @Input() label: string;
   @Input() errorMessage: string;
+  @Input() showTip = true;
 
   input: any;
 
@@ -24,7 +24,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit() {
     this.input = this.model || this.control;
-    if(this.input === undefined) {
+    if (this.input === undefined) {
       throw new Error('Esse componente precisa ser usado com uma diretiva ngModel ou FormControlName');
     }
   }
